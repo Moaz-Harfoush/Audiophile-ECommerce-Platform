@@ -10,6 +10,7 @@ import BestGear from "../components/shared/BestGear";
 
 const OtherLinks = () => {
   const { categoryName } = useParams();
+  console.log(categoryName);
   const products = useMemo(() => {
     return data.products.filter((item) => item.category === categoryName);
   }, [data.products, categoryName]);

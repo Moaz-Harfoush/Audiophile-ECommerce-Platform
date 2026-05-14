@@ -1,6 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-const Button = ({ url = "/", text = "See Product", variant = "primary" }) => {
+const Button = ({
+  url,
+  text = "See Product",
+  variant = "primary",
+  onClick,
+}) => {
   const variants = {
     primary:
       "bg-primary hover:bg-primary-light text-text-white border-transparent",
@@ -10,13 +15,19 @@ const Button = ({ url = "/", text = "See Product", variant = "primary" }) => {
       "bg-black-light hover:bg-gray-hover text-text-white border-transparent",
   };
 
+  const sharedClasses = `${variants[variant]} w-fit px-8 py-4 uppercase text-[13px] tracking-[1px] font-bold standard-smooth inline-block whitespace-nowrap`;
+
+  if (url) {
+    return (
+      <NavLink to={url} className={sharedClasses}>
+        {text}
+      </NavLink>
+    );
+  }
   return (
-    <NavLink
-      to={url}
-      className={`${variants[variant]} w-fit px-8 py-4 uppercase text-[13px] tracking-[1px] font-bold standard-smooth inline-block`}
-    >
+    <button onClick={onClick} className={sharedClasses}>
       {text}
-    </NavLink>
+    </button>
   );
 };
 

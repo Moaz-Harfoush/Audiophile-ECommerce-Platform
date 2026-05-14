@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import MobileMenu from "./MobileMenu";
-import NavOverlay from "./NavOverlay";
+import Overlay from "../../ui/Overlay";
 import Navbar from "./Navbar";
 
 const Header = () => {
@@ -26,7 +26,7 @@ const Header = () => {
 
       <MobileMenu active={active} setActive={setActive} />
 
-      <NavOverlay active={active} setActive={setActive} />
+      <Overlay active={active} setActive={setActive} />
     </header>
   );
 };

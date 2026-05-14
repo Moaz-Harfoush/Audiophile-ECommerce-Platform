@@ -1,5 +1,6 @@
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
+import New from "../ui/New";
 
 const CategoryProductCard = ({ product, index }) => {
   const isEven = index % 2 === 0;
@@ -20,11 +21,7 @@ const CategoryProductCard = ({ product, index }) => {
         </div>
 
         <div className="w-full lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
-          {product.new && (
-            <span className="text-primary tracking-[0.5rem] text-sm mb-4 block uppercase">
-              New Product
-            </span>
-          )}
+          {product.new && <New />}
 
           <h2 className="text-black-pure text-3xl md:text-4xl font-bold uppercase mb-6 md:mb-8 max-w-75 lg:max-w-none">
             {product.name}
@@ -34,7 +31,7 @@ const CategoryProductCard = ({ product, index }) => {
             {product.description}
           </p>
 
-          <Button />
+          <Button url={product.slug} />
         </div>
       </div>
     </section>

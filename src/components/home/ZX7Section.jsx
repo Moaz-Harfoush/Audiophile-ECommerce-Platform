@@ -16,7 +16,7 @@ const ZX7Section = () => (
       <h2 className="text-black-pure text-3xl font-bold mb-8 uppercase tracking-widest">
         ZX7 Speaker
       </h2>
-      <Button variant="ghost" />
+      <Button variant="ghost" url="/speakers/zx7-speaker" />
     </div>
   </div>
 );

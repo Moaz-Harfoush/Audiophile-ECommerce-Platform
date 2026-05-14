@@ -6,17 +6,17 @@ const categories = [
   {
     name: "HEADPHONES",
     img: IMAGES.shared.categories.headphones,
-    link: "/category/headphones",
+    link: "/headphones",
   },
   {
     name: "SPEAKERS",
     img: IMAGES.shared.categories.speakers,
-    link: "/category/speakers",
+    link: "/speakers",
   },
   {
     name: "EARPHONES",
     img: IMAGES.shared.categories.earphones,
-    link: "/category/earphones",
+    link: "/earphones",
   },
 ];
 

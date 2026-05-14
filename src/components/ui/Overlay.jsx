@@ -1,4 +1,4 @@
-const NavOverlay = ({ active, setActive }) => {
+const Overlay = ({ active, setActive }) => {
   return (
     <div
       className={`
@@ -10,4 +10,4 @@ const NavOverlay = ({ active, setActive }) => {
   );
 };
 
-export default NavOverlay;
+export default Overlay;

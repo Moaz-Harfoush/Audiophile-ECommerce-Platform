@@ -25,7 +25,7 @@ const ZX9Section = () => (
         Upgrade to premium speakers that are phenomenally built to deliver truly
         remarkable sound.
       </p>
-      <Button variant="dark-solid" />
+      <Button variant="dark-solid" url="/speakers/zx9-speaker" />
     </div>
   </div>
 );

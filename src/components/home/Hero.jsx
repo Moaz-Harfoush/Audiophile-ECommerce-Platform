@@ -4,6 +4,7 @@ import { IMAGES } from "../../assets";
 
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
+import New from "../ui/New";
 
 const Hero = () => {
   return (
@@ -11,9 +12,7 @@ const Hero = () => {
       <div className="container">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 pb-20 lg:pb-0">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <span className="text-sm tracking-[10px] text-primary block mb-6">
-              NEW PRODUCT
-            </span>
+            <New />
             <h1 className="text-4xl md:text-6xl font-bold text-text-white mb-6 leading-tight">
               XX99 MARK II <br /> HEADPHONES
             </h1>
@@ -21,7 +20,10 @@ const Hero = () => {
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>
-            <Button variant="primary" />
+            <Button
+              variant="primary"
+              url="/headphones/xx99-mark-two-headphones"
+            />
           </div>
 
           <div className="w-full lg:w-1/2 flex">

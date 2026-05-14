@@ -3,9 +3,9 @@ import { NavLink } from "react-router-dom";
 const NavList = ({ className = "", onItemClick, showActive = true }) => {
   const links = [
     { name: "HOME", path: "/" },
-    { name: "HEADPHONES", path: "/category/headphones" },
-    { name: "SPEAKERS", path: "/category/speakers" },
-    { name: "EARPHONES", path: "/category/earphones" },
+    { name: "HEADPHONES", path: "/headphones" },
+    { name: "SPEAKERS", path: "/speakers" },
+    { name: "EARPHONES", path: "/earphones" },
   ];
 
   return (
@@ -14,6 +14,7 @@ const NavList = ({ className = "", onItemClick, showActive = true }) => {
         <li key={link.name}>
           <NavLink
             to={link.path}
+            end
             onClick={onItemClick}
             className={({ isActive }) => {
               const activeClass =

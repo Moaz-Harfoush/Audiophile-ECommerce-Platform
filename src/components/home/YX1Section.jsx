@@ -17,7 +17,7 @@ const YX1Section = () => (
       <h2 className="text-black-pure text-3xl font-bold mb-8 uppercase tracking-widest">
         YX1 Earphones
       </h2>
-      <Button variant="ghost" />
+      <Button variant="ghost" url="/earphones/yx1-earphones" />
     </div>
   </div>
 );
