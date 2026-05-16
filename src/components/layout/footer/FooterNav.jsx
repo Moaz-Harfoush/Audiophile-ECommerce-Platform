@@ -1,12 +1,11 @@
-import NavList from "../../ui/NavList";
-
 import { NavLink } from "react-router-dom";
 
 import { ICONS } from "../../../assets";
 
-const { Logo } = ICONS;
+import NavList from "../../shared/NavList";
 
 const FooterNav = () => {
+  const { Logo } = ICONS;
   return (
     <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12 lg:gap-0 mb-10 lg:mb-14">
       <NavLink to="/" aria-label="Audiophile Home">

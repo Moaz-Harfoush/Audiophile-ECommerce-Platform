@@ -4,7 +4,7 @@ import { IMAGES } from "../../assets";
 
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
-import New from "../ui/New";
+import New from "../shared/New";
 
 const Hero = () => {
   return (
@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="container">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 pb-20 lg:pb-0">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <New />
+            <New positionOfText="lg" />
             <h1 className="text-4xl md:text-6xl font-bold text-text-white mb-6 leading-tight">
               XX99 MARK II <br /> HEADPHONES
             </h1>
@@ -28,8 +28,8 @@ const Hero = () => {
 
           <div className="w-full lg:w-1/2 flex">
             <ProductImage
-              desktop={IMAGES.home.hero.desktop}
-              tablet={IMAGES.home.hero.desktop}
+              desktop={IMAGES.home.hero.tablet}
+              tablet={IMAGES.home.hero.tablet}
               mobile={IMAGES.home.hero.mobile}
               alt="XX99 Mark II Headphones"
               className="w-full h-auto object-contain lg:scale-125"

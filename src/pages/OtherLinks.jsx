@@ -11,12 +11,12 @@ import NotFound from "./NotFound";
 
 const OtherLinks = () => {
   const { categoryName } = useParams();
-  console.log(categoryName);
+  // console.log(categoryName);
 
   const products = useMemo(() => {
     return data.products.filter((item) => item.category === categoryName);
   }, [categoryName]);
-  console.log(products);
+  // console.log(products);
 
   if (products.length === 0) {
     return <NotFound />;

@@ -1,7 +1,7 @@
 import { ICONS } from "../../../assets";
-const { Social } = ICONS;
 
 const FooterSocials = () => {
+  const { Social } = ICONS;
   return (
     <div className="flex flex-col items-center md:items-end justify-between h-full gap-12 md:gap-0">
       <div className="flex items-start gap-4">
@@ -10,7 +10,7 @@ const FooterSocials = () => {
           target="_blank"
           aria-label="Visit Facebook page"
         >
-          <img src={Social.Facebook} alt="Facebook" />
+          <img src={Social.Facebook} alt="" />
         </a>
 
         <a
@@ -18,7 +18,7 @@ const FooterSocials = () => {
           target="_blank"
           aria-label="Visit Twitter page"
         >
-          <img src={Social.Twitter} alt="Twitter" />
+          <img src={Social.Twitter} alt="" />
         </a>
 
         <a
@@ -26,7 +26,7 @@ const FooterSocials = () => {
           target="_blank"
           aria-label="Visit Instagram page"
         >
-          <img src={Social.Instagram} alt="Instagram" />
+          <img src={Social.Instagram} alt="" />
         </a>
       </div>
 

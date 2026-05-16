@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 
 import { ICONS } from "../../../assets";
-const { Logo, Hamburger, Cart } = ICONS;
 
-import NavList from "../../ui/NavList";
+import NavList from "../../shared/NavList";
 
 const Navbar = ({ setActive }) => {
+  const { Logo, Hamburger, Cart } = ICONS;
   return (
     <nav className="flex items-center justify-between w-full h-full border-b border-b-gray-border">
       <div className="flex gap-3 items-center md:gap-10">

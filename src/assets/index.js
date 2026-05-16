@@ -35,7 +35,7 @@ const CategorySpeakers = "/images/shared/desktop/image-speakers.webp";
 
 export const IMAGES = {
   home: {
-    hero: { mobile: HeroMobile, desktop: HeroTabletDesktop },
+    hero: { mobile: HeroMobile, tablet: HeroTabletDesktop },
     yx1: { desktop: imgYX1Desktop, tablet: imgYX1Tablet, mobile: imgYX1Mobile },
     zx7: { desktop: imgZX7Desktop, tablet: imgZX7Tablet, mobile: imgZX7Mobile },
     zx9: { desktop: imgZX9Desktop, tablet: imgZX9Tablet, mobile: imgZX9Mobile },

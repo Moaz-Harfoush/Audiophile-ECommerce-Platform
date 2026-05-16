@@ -1,6 +1,6 @@
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
-import New from "../ui/New";
+import New from "../shared/New";
 
 const CategoryProductCard = ({ product, index }) => {
   const isEven = index % 2 === 0;

@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
+import ScrollToTop from "./components/utils/ScrollToTop";
 import Home from "./pages/Home";
 import OtherLinks from "./pages/OtherLinks";
-import ScrollToTop from "./components/utils/ScrollToTop";
 import Product from "./pages/Product";
 import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <BrowserRouter>

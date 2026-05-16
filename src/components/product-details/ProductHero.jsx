@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
-import { useState } from "react";
-import New from "../ui/New";
-import { useNavigate } from "react-router-dom";
+import New from "../shared/New";
 
 const ProductHero = ({ product }) => {
   const [quantity, setQuantity] = useState(1);

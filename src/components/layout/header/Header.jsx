@@ -8,14 +8,16 @@ const Header = () => {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+    const handleTabletChange = (e) => {
+      if (!e.matches) {
         setActive(false);
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    mediaQuery.addEventListener("change", handleTabletChange);
+
+    return () => mediaQuery.removeEventListener("change", handleTabletChange);
   }, []);
 
   return (
