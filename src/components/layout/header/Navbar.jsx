@@ -4,8 +4,9 @@ import { ICONS } from "../../../assets";
 
 import NavList from "../../shared/NavList";
 
-const Navbar = ({ setActive }) => {
+const Navbar = ({ setActive, setIsCartOpen }) => {
   const { Logo, Hamburger, Cart } = ICONS;
+
   return (
     <nav className="flex items-center justify-between w-full h-full border-b border-b-gray-border">
       <div className="flex gap-3 items-center md:gap-10">
@@ -21,14 +22,16 @@ const Navbar = ({ setActive }) => {
           <img src={Logo} alt="Audiophile Logo" />
         </NavLink>
       </div>
-
       <NavList
         className="hidden lg:flex gap-6 items-center"
         onItemClick={() => setActive(false)}
         showActive={true}
       />
-
-      <button className="cursor-pointer" aria-label="View Cart">
+      <button
+        className="cursor-pointer"
+        aria-label="View Cart"
+        onClick={() => setIsCartOpen((prev) => !prev)}
+      >
         <img src={Cart} alt="Cart" />
       </button>
     </nav>

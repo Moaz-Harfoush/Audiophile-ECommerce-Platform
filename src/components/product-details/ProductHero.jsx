@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
 import New from "../shared/New";
+import DecrementAndIncrement from "../cart/DecrementAndIncrement";
 
 const ProductHero = ({ product }) => {
-  const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
 
-  const handleIncrement = () =>
-    setQuantity((prev) => (prev >= 20 ? prev : prev + 1));
-  const handleDecrement = () =>
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  // const handleIncrement = () =>
+  //   setQuantity((prev) => (prev >= 20 ? prev : prev + 1));
+  // const handleDecrement = () =>
+  //   setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
 
   return (
     <section className="mt-40">
@@ -50,21 +50,7 @@ const ProductHero = ({ product }) => {
             </span>
 
             <div className="flex items-center gap-4 flex-wrap md:flex-nowrap justify-center md:justify-start">
-              <div className="bg-gray-light flex items-center justify-between w-32 px-4 py-3">
-                <button
-                  className="text-text-body hover:text-primary font-bold standard-smooth"
-                  onClick={handleDecrement}
-                >
-                  -
-                </button>
-                <span className="font-bold text-sm">{quantity}</span>
-                <button
-                  className="text-text-body hover:text-primary font-bold standard-smooth"
-                  onClick={handleIncrement}
-                >
-                  +
-                </button>
-              </div>
+              <DecrementAndIncrement />
 
               <Button text="Add To Cart" onClick={() => console.log("add")} />
             </div>

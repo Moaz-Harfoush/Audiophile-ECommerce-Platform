@@ -13,12 +13,12 @@ import NotFound from "./NotFound";
 
 const Product = () => {
   const { itemName } = useParams();
-  // console.log(itemName);
+  console.log(itemName);
 
   const product = useMemo(() => {
     return data.products.find((item) => item.slug === itemName);
   }, [itemName]);
-  // console.log(product);
+  console.log(product);
 
   if (!product) {
     return <NotFound />;

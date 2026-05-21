@@ -25,7 +25,7 @@
   --color-text-white: #ffffff;
   --color-text-muted: #cfcfcf;
   --color-text-body: #4c4c4c;
-  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-overlay: rgba(0, 0, 0, 0.3);
 }
 
 @layer base {
