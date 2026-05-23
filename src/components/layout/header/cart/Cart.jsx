@@ -2,9 +2,9 @@ const Cart = ({ isCartOpen, children }) => {
   return (
     <div
       className={`
-        absolute top-4 h-96 z-50 bg-white rounded-lg shadow-2xl p-8
+        absolute top-4 h-110 sm:h-104  z-50 bg-white rounded-lg shadow-2xl p-8
         left-8 right-8 md:left-auto md:right-16
-        w-auto md:w-82 
+        w-auto md:w-86 
         origin-top-right
         standard-smooth
         

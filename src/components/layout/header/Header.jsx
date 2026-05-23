@@ -5,10 +5,13 @@ import Overlay from "../../ui/Overlay";
 import Navbar from "./Navbar";
 import EmptyCart from "./cart/EmptyCart";
 import Cart from "./cart/Cart";
+import FullCart from "./cart/FullCart";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems = useSelector((state) => state.cart);
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 1023px)");
     const handleTabletChange = (e) => {
@@ -29,7 +32,7 @@ const Header = () => {
         <div className="container h-full relative">
           <Navbar setActive={setActive} setIsCartOpen={setIsCartOpen} />
           <Cart isCartOpen={isCartOpen}>
-            <EmptyCart />
+            {cartItems.length > 0 ? <FullCart /> : <EmptyCart />}
           </Cart>
         </div>
 
