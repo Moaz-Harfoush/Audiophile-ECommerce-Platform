@@ -1,4 +1,11 @@
-const Cart = ({ isCartOpen, children }) => {
+import { useSelector } from "react-redux";
+import CartItemsSection from "./CartItemsSection";
+import EmptyCart from "./EmptyCart";
+
+const CartDropdown = ({ isCartOpen, children }) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const isCartEmpty = cartItems.length === 0;
+
   return (
     <div
       className={`
@@ -15,9 +22,9 @@ const Cart = ({ isCartOpen, children }) => {
         }
       `}
     >
-      {children}
+      {isCartEmpty ? <EmptyCart /> : <CartItemsSection />}
     </div>
   );
 };
 
-export default Cart;
+export default CartDropdown;

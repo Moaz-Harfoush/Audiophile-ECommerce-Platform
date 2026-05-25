@@ -3,7 +3,7 @@ const EmptyCart = () => {
     <div className="h-full flex flex-col items-center justify-center">
       <div className="w-24 h-24 flex items-center justify-center">
         <img
-          src="/images/cart/empty-cart.png"
+          src="/images/cart/empty-cart.webp"
           alt="Empty Cart"
           className="w-full h-full object-contain opacity-70"
         />

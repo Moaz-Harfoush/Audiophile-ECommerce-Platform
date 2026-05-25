@@ -1,16 +1,42 @@
-# React + Vite
+# 🎧 Audiophile E-commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Audiophile**, a high-end audio e-commerce web application. This project is a fully responsive, pixel-perfect modern storefront built using **React**, **Vite**, and **Redux Toolkit** for enterprise-grade state management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+- **Advanced State Management:** Global cart architecture handling product additions, dynamic quantities, and complex mathematical calculations with automated performance memoization (`useMemo`).
+- **Robust Form Validation:** Complete multi-step checkout process with strict field validation, dynamic payment method toggling, and interactive error feedback.
+- **Global Toast System:** Reactive, UX-optimized global toast notifications powered by Redux state to signal successful additions or max-capacity (`999` items) limits.
+- **Responsive Architecture:** Built with a Mobile-First design philosophy using Tailwind CSS, supporting fully animated navigation drawers and overlays.
+- **Seamless Navigation:** Client-side routing managed through React Router DOM with explicit 404 error page handling.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack & Architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Category             | Technology Used                               |
+| :------------------- | :-------------------------------------------- |
+| **Frontend Core**    | React 19, Vite, JavaScript (ES6+)             |
+| **State Management** | Redux Toolkit (Slices, Actions, Global Store) |
+| **Styling & UI**     | Tailwind CSS, Modern Responsive CSS Utilities |
+| **Routing**          | React Router DOM v6                           |
+| **Icons & Assets**   | Embedded SVGs and fully optimized WebP assets |
+
+### 📂 Clean Component Architecture
+
+The directory structure follows strict modular components separating global slices, features, shared layouts, and atomic dynamic UI elements:
+
+```text
+src/
+├── assets/             # Optimized global icons and image constants
+├── components/
+│   ├── product-details/   # Page layout blocks and product banners
+│   ├── shared/         # Reusable layouts (Navbar, Footer, Shop categories)
+│   └── ui/             # Atomic components (Buttons, Toast, Overlay)
+├── features/
+│   └── cart/           # Redux Cart Slice, CartDropdown, and logic sections
+├── data/               # Centralized product JSON database
+└── pages/              # Routed full views (Home, ProductDetails, Categories)
+```

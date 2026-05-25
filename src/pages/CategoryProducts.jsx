@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
 import { useMemo } from "react";
+import { useParams } from "react-router-dom";
 
 import data from "../data/products.json";
 
@@ -7,11 +7,12 @@ import CategoryHeader from "../components/category/CategoryHeader";
 import CategoryProductCard from "../components/category/CategoryProductCard";
 import Shop from "../components/shared/Shop";
 import BestGear from "../components/shared/BestGear";
+
 import NotFound from "./NotFound";
 
-const OtherLinks = () => {
+const CategoryProducts = () => {
   const { categoryName } = useParams();
-  console.log(categoryName);
+  // console.log(categoryName);
 
   const products = useMemo(() => {
     return data.products.filter((item) => item.category === categoryName);
@@ -35,4 +36,4 @@ const OtherLinks = () => {
   );
 };
 
-export default OtherLinks;
+export default CategoryProducts;

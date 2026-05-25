@@ -1,7 +1,16 @@
-import React from "react";
+import { useEffect } from "react";
 
-const Toast = ({ isVisible, message, type }) => {
+const Toast = ({ isVisible, message, type, onClose }) => {
   const isError = type === "error";
+
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => {
+        onClose();
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, onClose]);
 
   return (
     <div
@@ -21,7 +30,6 @@ const Toast = ({ isVisible, message, type }) => {
       `}
     >
       <span className="text-white text-base">{isError ? "✕" : "✓"}</span>
-
       <span>{message}</span>
     </div>
   );

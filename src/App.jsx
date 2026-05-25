@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import ScrollToTop from "./utils/ScrollToTop";
+
 import Layout from "./components/layout/Layout";
-import ScrollToTop from "./components/utils/ScrollToTop";
 import Home from "./pages/Home";
-import OtherLinks from "./pages/OtherLinks";
-import Product from "./pages/Product";
+import CategoryProducts from "./pages/CategoryProducts";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -14,8 +15,11 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/:categoryName" element={<OtherLinks />} />
-          <Route path="/:categoryName/:itemName" element={<Product />} />
+          <Route path="/:categoryName" element={<CategoryProducts />} />
+          <Route
+            path="/:categoryName/:itemName"
+            element={<ProductDetailPage />}
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
