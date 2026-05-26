@@ -1,24 +1,16 @@
 import { useMemo } from "react";
+import useCartTotals from "../../hooks/useCartTotals";
 
 import Button from "../../components/ui/Button";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "./cartSlice";
 import CartItemsList from "./CartItemsList";
 
-const CartItemsSection = () => {
-  const cartItems = useSelector((state) => state.cart.items);
+const CartItemsSection = ({ setIsCartOpen }) => {
+  const { cartItems, totalPrice, totalItems } = useCartTotals();
+  // console.log(cartItems);
   const dispatch = useDispatch();
-  console.log(cartItems);
-
-  const { totalPrice, totalItems } = useMemo(() => {
-    const totalPri = cartItems.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-      0,
-    );
-    const totalItm = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-    return { totalPrice: totalPri, totalItems: totalItm };
-  }, [cartItems]);
 
   return (
     <div>
@@ -44,8 +36,12 @@ const CartItemsSection = () => {
           $ {totalPrice.toLocaleString()}
         </span>
       </div>
-      <div className="grid w-full *:w-full">
-        <Button text="Checkout" />
+      <div className="grid w-full *:w-full *:text-center">
+        <Button
+          text="Checkout"
+          url="Checkout"
+          onClick={() => setIsCartOpen(false)}
+        />
       </div>
     </div>
   );

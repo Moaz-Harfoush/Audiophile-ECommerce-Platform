@@ -1,35 +1,56 @@
 import { useState, useEffect } from "react";
 
+import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import useCartTotals from "../../../hooks/useCartTotals";
+
 import MobileMenu from "./MobileMenu";
 import Overlay from "../../ui/Overlay";
 import Navbar from "./Navbar";
 
-import CartDropdown from "../../../features/cart/CartDropdown";
+import CartItemsSection from "../../../features/cart/CartItemsSection";
+import EmptyCart from "../../../features/cart/EmptyCart";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  const { isCartEmpty } = useCartTotals();
+
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 1023px)");
-    const handleTabletChange = (e) => {
-      if (!e.matches) {
-        setActive(false);
-        // console.log(active);
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleTabletChange);
-
-    return () => mediaQuery.removeEventListener("change", handleTabletChange);
-  }, []);
+    if (isDesktop) {
+      setActive(false);
+      // console.log(active);
+    }
+  }, [isDesktop]);
 
   return (
     <>
       <header className="w-full bg-black-light h-24 relative">
         <div className="container h-full relative">
           <Navbar setActive={setActive} setIsCartOpen={setIsCartOpen} />
-          <CartDropdown isCartOpen={isCartOpen} />
+          <div
+            className={`
+        absolute top-4 h-110 sm:h-104  z-50 bg-white rounded-lg shadow-2xl p-8
+        left-8 right-8 md:left-auto md:right-16
+        w-auto md:w-86 
+        origin-top-right
+        standard-smooth
+        
+        ${
+          isCartOpen
+            ? "opacity-100 scale-100 translate-y-32 pointer-events-auto"
+            : "opacity-0 scale-0 translate-y-12 pointer-events-none"
+        }
+      `}
+          >
+            {isCartEmpty ? (
+              <EmptyCart />
+            ) : (
+              <CartItemsSection setIsCartOpen={setIsCartOpen} />
+            )}
+          </div>
         </div>
 
         <MobileMenu active={active} setActive={setActive} />

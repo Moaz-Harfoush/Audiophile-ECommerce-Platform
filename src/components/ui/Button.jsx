@@ -19,7 +19,7 @@ const Button = ({
 
   if (url) {
     return (
-      <NavLink to={url} className={sharedClasses}>
+      <NavLink to={url} onClick={onClick} className={sharedClasses}>
         {text}
       </NavLink>
     );

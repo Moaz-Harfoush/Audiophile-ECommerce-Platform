@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ScrollToTop from "./utils/ScrollToTop";
+import ScrollToTop from "./utils/scrollToTop";
 
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import CategoryProducts from "./pages/CategoryProducts";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             path="/:categoryName/:itemName"
             element={<ProductDetailPage />}
           />
+          <Route path="/Checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

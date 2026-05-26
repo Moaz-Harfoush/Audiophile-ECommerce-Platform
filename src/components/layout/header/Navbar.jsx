@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import { NavLink } from "react-router-dom";
 
+import useCartTotals from "../../../hooks/useCartTotals";
+
 import { ICONS } from "../../../assets";
 
 import NavList from "../../shared/NavList";
@@ -10,18 +12,7 @@ import { useSelector } from "react-redux";
 const Navbar = ({ setActive, setIsCartOpen }) => {
   const { Logo, Hamburger, Cart } = ICONS;
 
-  const cartItems = useSelector((state) => state.cart.items);
-
-  const totalItems = useMemo(() => {
-    return cartItems.reduce(
-      (accumulator, item) => accumulator + item.quantity,
-      0,
-    );
-  }, [cartItems]);
-
-  const displayCount = useMemo(() => {
-    return totalItems > 9 ? "9+" : totalItems;
-  }, [totalItems]);
+  const { totalItems, displayCount } = useCartTotals();
 
   return (
     <nav className="flex items-center justify-between w-full h-full border-b border-b-gray-border">
