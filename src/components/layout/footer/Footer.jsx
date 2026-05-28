@@ -4,7 +4,7 @@ import FooterSocials from "./FooterSocials";
 
 const Footer = () => {
   return (
-    <footer className="bg-black-main mt-40">
+    <footer className="bg-black-main">
       <div className="container py-20 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-10 lg:translate-x-0 w-25 h-1 bg-primary"></div>
 

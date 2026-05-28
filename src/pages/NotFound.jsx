@@ -1,7 +1,7 @@
 const NotFound = () => {
   return (
     <section>
-      <div className="container relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
+      <div className="container my-20 relative min-h-[60vh] md:min-h-[80vh] flex items-center justify-center">
         <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
           <span className="text-[12rem] sm:text-[18rem] md:text-[25rem] font-bold text-text-muted opacity-50 leading-none tracking-tighter">
             404

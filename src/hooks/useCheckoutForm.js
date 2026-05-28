@@ -43,7 +43,7 @@ const useCheckoutForm = () => {
       }
 
       const regex = VALIDATION_RULES[field];
-      const value = formData[field].trim();
+      const value = String(formData[field] || "").trim();
 
       if (!value) {
         currentErrors[field] = "Field is required";

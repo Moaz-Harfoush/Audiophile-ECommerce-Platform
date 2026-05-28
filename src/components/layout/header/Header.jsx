@@ -9,14 +9,21 @@ import Navbar from "./Navbar";
 
 import CartItemsSection from "../../../features/cart/CartItemsSection";
 import EmptyCart from "../../../features/cart/EmptyCart";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [active, setActive] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const location = useLocation();
 
   const { isCartEmpty } = useCartTotals();
+
+  useEffect(() => {
+    setIsCartOpen(false);
+    setActive(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isDesktop) {
@@ -45,11 +52,7 @@ const Header = () => {
         }
       `}
           >
-            {isCartEmpty ? (
-              <EmptyCart />
-            ) : (
-              <CartItemsSection setIsCartOpen={setIsCartOpen} />
-            )}
+            {isCartEmpty ? <EmptyCart /> : <CartItemsSection />}
           </div>
         </div>
 

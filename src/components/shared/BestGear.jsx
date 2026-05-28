@@ -5,7 +5,7 @@ import ProductImage from "../ui/ProductImage";
 const BestGear = () => {
   return (
     <section>
-      <div className="container">
+      <div className="container mb-40">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-32">
           <div className="text-center lg:text-left lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest leading-tight mb-8">

@@ -5,6 +5,7 @@ const Button = ({
   text = "See Product",
   variant = "primary",
   onClick,
+  type = "button",
 }) => {
   const variants = {
     primary:
@@ -25,7 +26,7 @@ const Button = ({
     );
   }
   return (
-    <button onClick={onClick} className={sharedClasses}>
+    <button onClick={onClick} className={sharedClasses} type={type}>
       {text}
     </button>
   );

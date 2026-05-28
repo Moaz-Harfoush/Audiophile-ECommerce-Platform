@@ -1,3 +1,4 @@
+import { ICONS } from "../../assets";
 import Input from "../ui/Input";
 
 const PaymentMethod = ({
@@ -8,6 +9,7 @@ const PaymentMethod = ({
   setErrors,
 }) => {
   const method = formData.paymentMethod;
+  const { Checkout } = ICONS;
 
   const handleMethodChange = (newMethod) => {
     setFormData((prev) => ({ ...prev, paymentMethod: newMethod }));
@@ -67,7 +69,7 @@ const PaymentMethod = ({
               placeholder="238521993"
               value={formData.eMoneyNumber}
               onChange={handleInputChange}
-              error={errors.eMoneyNumber} // ربط الخطأ
+              error={errors.eMoneyNumber}
             />
             <Input
               label="e-Money PIN"
@@ -75,12 +77,12 @@ const PaymentMethod = ({
               placeholder="6891"
               value={formData.eMoneyPin}
               onChange={handleInputChange}
-              error={errors.eMoneyPin} // ربط الخطأ
+              error={errors.eMoneyPin}
             />
           </div>
         ) : (
           <div className="md:col-span-2 flex items-start gap-6 pt-6 animate-fadeIn">
-            <img src="/images/checkout/icon-cash-on-delivery.svg" alt="" />
+            <img src={Checkout} alt="" />
             <p className="text-text-body text-[15px] font-medium leading-relaxed normal-case">
               The ‘Cash on Delivery’ option allows you to pay in cash when our
               delivery courier arrives at your residence. Just make sure your

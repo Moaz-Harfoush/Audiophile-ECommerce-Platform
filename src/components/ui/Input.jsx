@@ -36,7 +36,7 @@ const Input = ({
         value={value}
         onChange={onChange}
         className={`w-full border-2 rounded-lg px-6 py-4 text-sm font-bold text-black-pure 
-        placeholder:text-text-body placeholder:font-medium focus:outline-none transition-colors caret-primary
+        placeholder:text-text-muted placeholder:font-medium focus:outline-none transition-colors caret-primary
         ${error ? "border-error focus:border-error" : "border-text-muted focus:border-primary"}`}
       />
     </div>

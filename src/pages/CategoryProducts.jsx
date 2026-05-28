@@ -20,7 +20,7 @@ const CategoryProducts = () => {
   // console.log(products);
 
   if (products.length === 0) {
-    console.log(`The number of products is  ${products.length}`);
+    // console.log(`The number of products is  ${products.length}`);
     return <NotFound />;
   }
 

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { use, useMemo } from "react";
+import { useMemo } from "react";
 
 const useCartTotals = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -13,6 +13,10 @@ const useCartTotals = () => {
     return { totalPrice: totalPri, totalItems: totalItm };
   }, [cartItems]);
 
+  const grandTotal = useMemo(() => {
+    return Math.round(totalPrice + 50 + totalPrice * 0.2);
+  }, [totalPrice]);
+
   const displayCount = useMemo(() => {
     return totalItems > 9 ? "9+" : totalItems;
   }, [totalItems]);
@@ -25,6 +29,7 @@ const useCartTotals = () => {
     totalItems,
     displayCount,
     isCartEmpty,
+    grandTotal,
   };
 };
 

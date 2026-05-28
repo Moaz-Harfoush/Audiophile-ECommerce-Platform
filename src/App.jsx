@@ -21,7 +21,7 @@ function App() {
             path="/:categoryName/:itemName"
             element={<ProductDetailPage />}
           />
-          <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

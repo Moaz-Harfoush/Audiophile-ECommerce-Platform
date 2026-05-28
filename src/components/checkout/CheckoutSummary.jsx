@@ -2,7 +2,7 @@ import Button from "../ui/Button";
 import useCartTotals from "../../hooks/useCartTotals";
 
 const CheckoutSummary = () => {
-  const { cartItems, totalPrice } = useCartTotals();
+  const { cartItems, totalPrice, grandTotal } = useCartTotals();
 
   return (
     <div className="rounded-lg p-2 md:p-8">
@@ -61,13 +61,13 @@ const CheckoutSummary = () => {
             Grand Total
           </span>
           <span className="font-bold text-primary text-lg">
-            $ {Math.round(totalPrice + 50 + totalPrice * 0.2).toLocaleString()}
+            $ {grandTotal.toLocaleString()}
           </span>
         </div>
       </div>
 
       <div className="*:w-full">
-        <Button text="Continue & Pay" />
+        <Button text="Continue & Pay" type="submit" />
       </div>
     </div>
   );

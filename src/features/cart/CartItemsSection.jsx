@@ -7,9 +7,9 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "./cartSlice";
 import CartItemsList from "./CartItemsList";
 
-const CartItemsSection = ({ setIsCartOpen }) => {
+const CartItemsSection = () => {
   const { cartItems, totalPrice, totalItems } = useCartTotals();
-  // console.log(cartItems);
+
   const dispatch = useDispatch();
 
   return (
@@ -36,12 +36,8 @@ const CartItemsSection = ({ setIsCartOpen }) => {
           $ {totalPrice.toLocaleString()}
         </span>
       </div>
-      <div className="grid w-full *:w-full *:text-center">
-        <Button
-          text="Checkout"
-          url="Checkout"
-          onClick={() => setIsCartOpen(false)}
-        />
+      <div className="*:w-full *:text-center">
+        <Button text="Checkout" url="/checkout" />
       </div>
     </div>
   );

@@ -3,15 +3,15 @@ import Button from "../ui/Button";
 import useCartTotals from "../../hooks/useCartTotals";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function OrderSuccessModal() {
-  const { totalPrice } = useCartTotals();
+  const { grandTotal } = useCartTotals();
   const dispatch = useDispatch();
 
   return (
-    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-32px)] max-w-[540px] bg-white rounded-lg p-8 md:p-12 shadow-2xl font-sans text-left pointer-events-auto">
-      {/* أيقونة علامة الصح البرتقالية */}
-      <div className="w-16 h-16 bg-[#D87D4A] rounded-full mx-auto flex items-center justify-center mb-8">
+    <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-32px)] max-w-135 bg-white rounded-lg p-8 md:p-12 shadow-2xl font-sans text-left pointer-events-auto">
+      <div className="w-16 h-16 bg-primary rounded-full mx-auto flex items-center justify-center mb-8">
         <svg
           width="24"
           height="18"
@@ -29,23 +29,21 @@ export default function OrderSuccessModal() {
         </svg>
       </div>
 
-      {/* العناوين الأساسية */}
       <h2 className="text-[28px] text-center md:text-[32px] font-bold uppercase tracking-wide leading-8 md:leading-9 mb-6 text-black">
         Thank you <br /> for your order
       </h2>
 
-      <p className="text-black/50 text-center text-[15px] font-medium mb-8">
+      <p className="text-text-body text-center text-[15px] font-medium mb-8">
         You will receive an email confirmation shortly.
       </p>
 
-      {/* صندوق تفاصيل الطلب (المقسم لجزئين: المنتجات والـ Grand Total) */}
-      <div className="flex flex-col sm:flex-row rounded-lg overflow-hidden mb-12 border border-black/5">
+      <div className="flex flex-col sm:flex-row rounded-lg overflow-hidden mb-12">
         <div className="bg-black-pure text-text-white p-6 w-full flex flex-col justify-center gap-2">
-          <p className="text-[15px] uppercase font-medium text-center text-white/50 tracking-wider">
+          <p className="text-[15px] uppercase font-medium text-center text-text-muted tracking-wider">
             Grand Total
           </p>
-          <p className="text-[18px] font-bold tracking-wide text-center text-white">
-            $ {Math.round(totalPrice + 50 + totalPrice * 0.2).toLocaleString()}
+          <p className="text-[18px] font-bold tracking-wide text-center text-text-white">
+            $ {grandTotal.toLocaleString()}
           </p>
         </div>
       </div>

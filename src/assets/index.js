@@ -5,10 +5,12 @@ const IconHamburger = "/images/shared/tablet/icon-hamburger.svg";
 const IconFacebook = "/images/shared/desktop/icon-facebook.svg";
 const IconTwitter = "/images/shared/desktop/icon-twitter.svg";
 const IconInstagram = "/images/shared/desktop/icon-instagram.svg";
+const Checkout = "/images/checkout/icon-cash-on-delivery.svg";
 
 // --- 2. Home Hero ---
 const HeroMobile = "/images/home/mobile/image-hero.webp";
 const HeroTabletDesktop = "/images/home/tablet/image-hero.webp";
+const desktop = "/images/home/desktop/image-hero.jpg";
 
 // --- 3. Home Products Sections ---
 const imgYX1Desktop = "/images/home/desktop/image-earphones-yx1.webp";
@@ -35,7 +37,11 @@ const CategorySpeakers = "/images/shared/desktop/image-speakers.webp";
 
 export const IMAGES = {
   home: {
-    hero: { mobile: HeroMobile, tablet: HeroTabletDesktop },
+    hero: {
+      mobile: HeroMobile,
+      tablet: HeroTabletDesktop,
+      desktop: desktop,
+    },
     yx1: { desktop: imgYX1Desktop, tablet: imgYX1Tablet, mobile: imgYX1Mobile },
     zx7: { desktop: imgZX7Desktop, tablet: imgZX7Tablet, mobile: imgZX7Mobile },
     zx9: { desktop: imgZX9Desktop, tablet: imgZX9Tablet, mobile: imgZX9Mobile },
@@ -63,4 +69,5 @@ export const ICONS = {
     Twitter: IconTwitter,
     Instagram: IconInstagram,
   },
+  Checkout: Checkout,
 };
