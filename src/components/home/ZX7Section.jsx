@@ -1,3 +1,5 @@
+import React from "react";
+
 import { IMAGES } from "../../assets";
 
 import Button from "../ui/Button";
@@ -5,7 +7,9 @@ import ProductImage from "../ui/ProductImage";
 
 const ZX7Section = () => (
   <section>
+    {/* Full-width container using the image as an absolute background layer for content placement */}
     <div className="relative rounded-lg overflow-hidden h-80 flex items-center px-6 lg:px-24 bg-gray-light">
+      {/* Absolute positioned background product image */}
       <ProductImage
         desktop={IMAGES.home.zx7.desktop}
         tablet={IMAGES.home.zx7.tablet}
@@ -13,8 +17,10 @@ const ZX7Section = () => (
         alt="ZX7"
         className="absolute inset-0 z-0"
       />
+
+      {/* Interactive foreground layer containing text and action button */}
       <div className="relative z-10">
-        <h2 className="text-black-pure text-3xl font-bold mb-8 uppercase tracking-widest">
+        <h2 className="text-black text-3xl font-bold mb-8 uppercase tracking-widest">
           ZX7 Speaker
         </h2>
         <Button variant="ghost" url="/speakers/zx7-speaker" />

@@ -1,7 +1,8 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
-
 import { IMAGES } from "../../assets";
 
+/* Static categories presentation definitions array layout */
 const categories = [
   {
     name: "HEADPHONES",
@@ -24,6 +25,7 @@ const Shop = () => {
   return (
     <section>
       <div className="container">
+        {/* Wrapped grid row structuring individual link cards responsive spacing */}
         <div className="flex justify-center gap-20 md:gap-8 flex-wrap lg:flex-nowrap">
           {categories.map((item) => (
             <NavLink
@@ -31,17 +33,19 @@ const Shop = () => {
               to={item.link}
               className="relative flex flex-col items-center bg-gray-light rounded-lg w-full sm:w-[320px] h-50 group standard-smooth"
             >
+              {/* Negative margin top composition handles floating overlay graphic effects */}
               <img
                 src={item.img}
                 alt={item.name}
                 className="w-50 h-50 object-contain -mt-20 drop-shadow-2xl transform group-hover:scale-105 standard-smooth"
-                loading="lazy"
+                loading="lazy" // Performance asset optimizations delaying non-visible items
               />
 
               <div className="text-center pb-6 mt-auto">
-                <h2 className="text-black-pure text-lg font-bold tracking-widest mb-4">
+                <h2 className="text-black text-lg font-bold tracking-widest mb-4">
                   {item.name}
                 </h2>
+                {/* Micro-interaction animation responding smoothly to parent card hover gestures */}
                 <div className="flex items-center justify-center gap-2 text-gray-border font-bold group-hover:text-primary standard-smooth">
                   SHOP
                   <span className="text-primary text-xl font-bold"> &gt; </span>

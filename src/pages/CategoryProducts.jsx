@@ -11,25 +11,29 @@ import BestGear from "../components/shared/BestGear";
 import NotFound from "./NotFound";
 
 const CategoryProducts = () => {
+  /* Extract category name dynamically from the URL parameters */
   const { categoryName } = useParams();
-  // console.log(categoryName);
 
+  /* Memoize filtered products to prevent recalculation on every re-render */
   const products = useMemo(() => {
     return data.products.filter((item) => item.category === categoryName);
   }, [categoryName]);
-  // console.log(products);
 
+  /* Fallback to NotFound component if no products match the category */
   if (products.length === 0) {
-    // console.log(`The number of products is  ${products.length}`);
     return <NotFound />;
   }
 
   return (
     <>
+      {/* Header section displaying the active category title */}
       <CategoryHeader title={categoryName} />
+
+      {/* Map through products and pass data to the card component */}
       {products.map((product, index) => (
         <CategoryProductCard key={product.id} product={product} index={index} />
       ))}
+
       <Shop />
       <BestGear />
     </>

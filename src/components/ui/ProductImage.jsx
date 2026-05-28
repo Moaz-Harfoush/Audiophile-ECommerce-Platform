@@ -1,3 +1,5 @@
+import React from "react";
+
 const ProductImage = ({
   desktop,
   tablet,
@@ -6,6 +8,7 @@ const ProductImage = ({
   className,
   isPriority = false,
 }) => (
+  /* Semantic art-direction elements tree rendering optimized responsive screens assets queries */
   <picture className={className}>
     <source media="(min-width: 1024px)" srcSet={desktop} />
     <source media="(min-width: 768px)" srcSet={tablet} />
@@ -13,6 +16,7 @@ const ProductImage = ({
       src={mobile}
       alt={alt}
       className="w-full h-full object-cover"
+      /* Critical asset prioritization engine configuration rules optimizing Core Web Vitals */
       loading={isPriority ? "eager" : "lazy"}
       fetchPriority={isPriority ? "high" : "auto"}
     />

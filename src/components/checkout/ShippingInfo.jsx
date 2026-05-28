@@ -1,6 +1,15 @@
+import React from "react";
+
+import { useFormContext } from "react-hook-form";
+
 import Input from "../ui/Input";
 
-const ShippingInfo = ({ formData, errors, handleInputChange }) => {
+const ShippingInfo = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <div>
       <h3 className="text-primary text-xs font-bold tracking-widest uppercase mb-4">
@@ -9,36 +18,49 @@ const ShippingInfo = ({ formData, errors, handleInputChange }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Your Address"
-          name="address"
           placeholder="1137 Williams Avenue"
           className="md:col-span-2"
-          value={formData.address}
-          onChange={handleInputChange}
-          error={errors.address}
+          {...register("address", { required: "Field is required" })}
+          error={errors.address?.message}
         />
+
         <Input
           label="ZIP Code"
-          name="zipCode"
           placeholder="10001"
-          value={formData.zipCode}
-          onChange={handleInputChange}
-          error={errors.zipCode}
+          {...register("zipCode", {
+            required: "Field is required",
+            pattern: {
+              value: /^[0-9]{5}$/,
+              message: "Not valid (5 digits required)",
+            },
+          })}
+          error={errors.zipCode?.message}
         />
+
         <Input
           label="City"
-          name="city"
           placeholder="New York"
-          value={formData.city}
-          onChange={handleInputChange}
-          error={errors.city}
+          {...register("city", {
+            required: "Field is required",
+            pattern: {
+              value: /^[A-Za-z\s]+$/,
+              message: "Not valid (Letters only)",
+            },
+          })}
+          error={errors.city?.message}
         />
+
         <Input
           label="Country"
-          name="country"
           placeholder="United States"
-          value={formData.country}
-          onChange={handleInputChange}
-          error={errors.country}
+          {...register("country", {
+            required: "Field is required",
+            pattern: {
+              value: /^[A-Za-z\s]+$/,
+              message: "Not valid (Letters only)",
+            },
+          })}
+          error={errors.country?.message}
         />
       </div>
     </div>

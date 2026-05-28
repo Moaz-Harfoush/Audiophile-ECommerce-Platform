@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 
 import CartItemsSection from "../../../features/cart/CartItemsSection";
 import EmptyCart from "../../../features/cart/EmptyCart";
+
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
@@ -17,18 +18,18 @@ const Header = () => {
 
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const location = useLocation();
-
   const { isCartEmpty } = useCartTotals();
 
+  /* Automatically close cart and mobile menu whenever the URL route changes */
   useEffect(() => {
     setIsCartOpen(false);
     setActive(false);
   }, [location.pathname]);
 
+  /* Reset mobile menu state if screen switches to desktop dimensions */
   useEffect(() => {
     if (isDesktop) {
       setActive(false);
-      // console.log(active);
     }
   }, [isDesktop]);
 
@@ -37,21 +38,24 @@ const Header = () => {
       <header className="w-full bg-black-light h-24 relative">
         <div className="container h-full relative">
           <Navbar setActive={setActive} setIsCartOpen={setIsCartOpen} />
+
+          {/* Cart Dropdown Modal Container */}
           <div
             className={`
-        absolute top-4 h-110 sm:h-104  z-50 bg-white rounded-lg shadow-2xl p-8
-        left-8 right-8 md:left-auto md:right-16
-        w-auto md:w-86 
-        origin-top-right
-        standard-smooth
-        
-        ${
-          isCartOpen
-            ? "opacity-100 scale-100 translate-y-32 pointer-events-auto"
-            : "opacity-0 scale-0 translate-y-12 pointer-events-none"
-        }
-      `}
+              absolute top-4 h-110 sm:h-104 z-50 bg-white rounded-lg shadow-2xl p-8
+              left-8 right-8 md:left-auto md:right-16
+              w-auto md:w-86 
+              origin-top-right
+              standard-smooth
+              
+              ${
+                isCartOpen
+                  ? "opacity-100 scale-100 translate-y-32 pointer-events-auto"
+                  : "opacity-0 scale-0 translate-y-12 pointer-events-none"
+              }
+            `}
           >
+            {/* Conditional rendering based on whether the shopping cart has items */}
             {isCartEmpty ? <EmptyCart /> : <CartItemsSection />}
           </div>
         </div>
@@ -59,6 +63,7 @@ const Header = () => {
         <MobileMenu active={active} setActive={setActive} />
       </header>
 
+      {/* Global overlay handling background dimming for both menu and cart */}
       <Overlay
         isOpen={active || isCartOpen}
         onClose={() => {

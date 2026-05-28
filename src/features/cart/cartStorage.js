@@ -1,5 +1,6 @@
 const STORAGE_KEY = "audiophile_cart";
 
+/* Safely retrieve state string values from local storage keys */
 export const loadCartFromStorage = () => {
   try {
     const serializedCart = localStorage.getItem(STORAGE_KEY);
@@ -11,6 +12,7 @@ export const loadCartFromStorage = () => {
   }
 };
 
+/* Persist updated local slice list arrays back into browser memory */
 export const saveCartToStorage = (items) => {
   try {
     const serializedCart = JSON.stringify(items);

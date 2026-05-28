@@ -1,9 +1,16 @@
+import React from "react";
+
+import { IMAGES } from "../../assets";
+
 const EmptyCart = () => {
+  const { cart } = IMAGES;
+
   return (
+    /* Center-aligned layout placeholder for unpopulated empty states */
     <div className="h-full flex flex-col items-center justify-center">
       <div className="w-24 h-24 flex items-center justify-center">
         <img
-          src="/images/cart/empty-cart.webp"
+          src={cart.empthyCart} // Verified asset source target reference
           alt="Empty Cart"
           className="w-full h-full object-contain opacity-70"
         />

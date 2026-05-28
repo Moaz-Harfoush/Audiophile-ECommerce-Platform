@@ -9,8 +9,8 @@ const Checkout = "/images/checkout/icon-cash-on-delivery.svg";
 
 // --- 2. Home Hero ---
 const HeroMobile = "/images/home/mobile/image-hero.webp";
-const HeroTabletDesktop = "/images/home/tablet/image-hero.webp";
-const desktop = "/images/home/desktop/image-hero.jpg";
+const HeroTablet = "/images/home/tablet/image-hero.webp";
+const Desktop = "/images/home/desktop/image-hero.webp";
 
 // --- 3. Home Products Sections ---
 const imgYX1Desktop = "/images/home/desktop/image-earphones-yx1.webp";
@@ -35,12 +35,15 @@ const CategoryEarphones = "/images/shared/desktop/image-earphones.webp";
 const CategoryHeadphones = "/images/shared/desktop/image-headphones.webp";
 const CategorySpeakers = "/images/shared/desktop/image-speakers.webp";
 
+// --- 6. EmpthyCart ---
+const EmpthyCart = "/images/cart/empty-cart.webp";
+
 export const IMAGES = {
   home: {
     hero: {
       mobile: HeroMobile,
-      tablet: HeroTabletDesktop,
-      desktop: desktop,
+      tablet: HeroTablet,
+      desktop: Desktop,
     },
     yx1: { desktop: imgYX1Desktop, tablet: imgYX1Tablet, mobile: imgYX1Mobile },
     zx7: { desktop: imgZX7Desktop, tablet: imgZX7Tablet, mobile: imgZX7Mobile },
@@ -57,6 +60,9 @@ export const IMAGES = {
       headphones: CategoryHeadphones,
       speakers: CategorySpeakers,
     },
+  },
+  cart: {
+    empthyCart: EmpthyCart,
   },
 };
 

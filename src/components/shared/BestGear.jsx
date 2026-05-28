@@ -1,3 +1,5 @@
+import React from "react";
+
 import { IMAGES } from "../../assets";
 
 import ProductImage from "../ui/ProductImage";
@@ -6,7 +8,9 @@ const BestGear = () => {
   return (
     <section>
       <div className="container mb-40">
+        {/* Responsive flex layout changing order on smaller devices via flex-col-reverse */}
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-32">
+          {/* Informational branding text block */}
           <div className="text-center lg:text-left lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-widest leading-tight mb-8">
               Bringing you the <br />
@@ -23,6 +27,7 @@ const BestGear = () => {
             </p>
           </div>
 
+          {/* Fully responsive background product presentation wrapper */}
           <div className="w-full lg:w-2/3 h-75 md:h-87.5 lg:h-125 rounded-lg overflow-hidden">
             <ProductImage
               desktop={IMAGES.shared.bestGear.desktop}

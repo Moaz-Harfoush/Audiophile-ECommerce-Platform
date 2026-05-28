@@ -1,20 +1,28 @@
+import React from "react";
+
+import { useFormContext } from "react-hook-form";
+
 import { ICONS } from "../../assets";
+
 import Input from "../ui/Input";
 
-const PaymentMethod = ({
-  formData,
-  setFormData,
-  handleInputChange,
-  errors,
-  setErrors,
-}) => {
-  const method = formData.paymentMethod;
-  const { Checkout } = ICONS;
+const PaymentMethod = () => {
+  const {
+    register,
+    watch,
+    setValue,
+    clearErrors,
+    formState: { errors },
+  } = useFormContext();
 
+  const { Checkout } = ICONS;
+  const method = watch("paymentMethod");
+
+  /* Handles swapping state dependencies and flushes obsolete field input validation errors */
   const handleMethodChange = (newMethod) => {
-    setFormData((prev) => ({ ...prev, paymentMethod: newMethod }));
+    setValue("paymentMethod", newMethod);
     if (newMethod === "cash") {
-      setErrors((prev) => ({ ...prev, eMoneyNumber: "", eMoneyPin: "" }));
+      clearErrors(["eMoneyNumber", "eMoneyPin"]);
     }
   };
 
@@ -29,6 +37,7 @@ const PaymentMethod = ({
           Payment Method
         </span>
 
+        {/* Custom structural Radio Selector blocks styling */}
         <div className="space-y-4">
           <div
             onClick={() => handleMethodChange("e-money")}
@@ -41,7 +50,7 @@ const PaymentMethod = ({
                 <div className="w-2.5 h-2.5 rounded-full bg-primary"></div>
               )}
             </div>
-            <span className="text-sm font-bold text-black-pure">e-Money</span>
+            <span className="text-sm font-bold text-black">e-Money</span>
           </div>
 
           <div
@@ -55,34 +64,43 @@ const PaymentMethod = ({
                 <div className="w-2.5 h-2.5 rounded-full bg-primary"></div>
               )}
             </div>
-            <span className="text-sm font-bold text-black-pure">
+            <span className="text-sm font-bold text-black">
               Cash on Delivery
             </span>
           </div>
         </div>
 
+        {/* Context-aware dynamic template switching zone */}
         {method === "e-money" ? (
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 animate-fadeIn">
             <Input
               label="e-Money Number"
-              name="eMoneyNumber"
               placeholder="238521993"
-              value={formData.eMoneyNumber}
-              onChange={handleInputChange}
-              error={errors.eMoneyNumber}
+              error={errors.eMoneyNumber?.message}
+              {...register("eMoneyNumber", {
+                required: method === "e-money" ? "Field is required" : false,
+                pattern: {
+                  value: /^[0-9]{9}$/,
+                  message: "Not valid (9 digits required)",
+                },
+              })}
             />
             <Input
               label="e-Money PIN"
-              name="eMoneyPin"
               placeholder="6891"
-              value={formData.eMoneyPin}
-              onChange={handleInputChange}
-              error={errors.eMoneyPin}
+              error={errors.eMoneyPin?.message}
+              {...register("eMoneyPin", {
+                required: method === "e-money" ? "Field is required" : false,
+                pattern: {
+                  value: /^[0-9]{4}$/,
+                  message: "Not valid (4 digits required)",
+                },
+              })}
             />
           </div>
         ) : (
           <div className="md:col-span-2 flex items-start gap-6 pt-6 animate-fadeIn">
-            <img src={Checkout} alt="" />
+            <img src={Checkout} alt="Cash delivery notice" />
             <p className="text-text-body text-[15px] font-medium leading-relaxed normal-case">
               The ‘Cash on Delivery’ option allows you to pay in cash when our
               delivery courier arrives at your residence. Just make sure your

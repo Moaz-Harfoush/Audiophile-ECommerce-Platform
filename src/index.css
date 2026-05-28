@@ -14,7 +14,6 @@
   --color-primary: #d87d4a;
   --color-primary-light: #fbaf85;
 
-  --color-black-pure: #000000;
   --color-black-main: #101010;
   --color-black-light: #191919;
 
@@ -24,7 +23,6 @@
 
   --color-error: #ef4444;
 
-  --color-text-white: #ffffff;
   --color-text-muted: #cfcfcf;
   --color-text-body: #4c4c4c;
   --color-overlay: rgba(0, 0, 0, 0.3);
@@ -42,9 +40,4 @@
 
 .standard-smooth {
   @apply transition-all duration-300 ease-in-out cursor-pointer;
-}
-
-.nav-link,
-.nav-link.active {
-  @apply text-sm tracking-[2px] font-bold transition-colors duration-300;
 }

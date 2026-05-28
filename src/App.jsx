@@ -1,13 +1,14 @@
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ScrollToTop from "./utils/scrollToTop";
-
 import Layout from "./components/layout/Layout";
-import Home from "./pages/Home";
-import CategoryProducts from "./pages/CategoryProducts";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import Checkout from "./pages/Checkout";
-import NotFound from "./pages/NotFound";
+
+const Home = lazy(() => import("./pages/Home"));
+const CategoryProducts = lazy(() => import("./pages/CategoryProducts"));
+const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
   return (

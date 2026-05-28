@@ -1,3 +1,6 @@
+import React from "react";
+
+/* Reusable batch indicator tag utilizing dynamic tailwind breakpoint properties */
 const New = ({ positionOfText = "md" }) => {
   return (
     <span

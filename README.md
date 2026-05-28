@@ -1,42 +1,37 @@
-# 🎧 Audiophile E-commerce Website
+# Audiophile E-Commerce Website 🎧
 
-Welcome to **Audiophile**, a high-end audio e-commerce web application. This project is a fully responsive, pixel-perfect modern storefront built using **React**, **Vite**, and **Redux Toolkit** for enterprise-grade state management.
-
----
-
-## 🚀 Key Features
-
-- **Advanced State Management:** Global cart architecture handling product additions, dynamic quantities, and complex mathematical calculations with automated performance memoization (`useMemo`).
-- **Robust Form Validation:** Complete multi-step checkout process with strict field validation, dynamic payment method toggling, and interactive error feedback.
-- **Global Toast System:** Reactive, UX-optimized global toast notifications powered by Redux state to signal successful additions or max-capacity (`999` items) limits.
-- **Responsive Architecture:** Built with a Mobile-First design philosophy using Tailwind CSS, supporting fully animated navigation drawers and overlays.
-- **Seamless Navigation:** Client-side routing managed through React Router DOM with explicit 404 error page handling.
+A premium, fully responsive, and high-performance audio equipment e-commerce web application built using modern web technologies. The project features clean code architecture, advanced form state management, modular design pattern, and centralized globally managed application state.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Tech Stack & Tooling
 
-| Category             | Technology Used                               |
-| :------------------- | :-------------------------------------------- |
-| **Frontend Core**    | React 19, Vite, JavaScript (ES6+)             |
-| **State Management** | Redux Toolkit (Slices, Actions, Global Store) |
-| **Styling & UI**     | Tailwind CSS, Modern Responsive CSS Utilities |
-| **Routing**          | React Router DOM v6                           |
-| **Icons & Assets**   | Embedded SVGs and fully optimized WebP assets |
+The application leverages a robust stack designed for production-level stability, speed, and absolute scalibilty:
 
-### 📂 Clean Component Architecture
+- **Core Library:** React 18 (Functional Components & Hooks)
+- **Routing Engine:** React Router DOM v6 (Nested dynamic parameterized routing)
+- **Global State Management:** Redux Toolkit (Slices architecture)
+- **Form Management:** React Hook Form (Context-driven via FormProvider)
+- **Styling Framework:** Tailwind CSS (Custom utility ecosystem, responsive break-points)
+- **Asset Optimization:** Semantic HTML5 (`<picture>`, native lazy loading constructs)
 
-The directory structure follows strict modular components separating global slices, features, shared layouts, and atomic dynamic UI elements:
+---
+
+## 📂 Project Architecture & Directory Structure
+
+The repository adheres to a highly modular file arrangement structure to isolate scopes and preserve strict maintainability guidelines:
 
 ```text
 src/
-├── assets/             # Optimized global icons and image constants
-├── components/
-│   ├── product-details/   # Page layout blocks and product banners
-│   ├── shared/         # Reusable layouts (Navbar, Footer, Shop categories)
-│   └── ui/             # Atomic components (Buttons, Toast, Overlay)
-├── features/
-│   └── cart/           # Redux Cart Slice, CartDropdown, and logic sections
-├── data/               # Centralized product JSON database
-└── pages/              # Routed full views (Home, ProductDetails, Categories)
+│
+├── assets/                  # Centralized static image, graphics, and asset maps
+├── features/                # Redux Toolkit modular slices (Cart state engine)
+├── hooks/                   # Custom business logic abstractions (useCartTotals, useMediaQuery)
+├── components/              # Structural and view elements layer
+│    ├── layout/             # Persistent site scaffolding frames (Header / Footer / Layout)
+│    ├── shared/             # Reusable composite layout patterns (BestGear, Shop grid)
+│    ├── ui/                 # Atomic single-purpose visual elements (Inputs, Buttons, Badges)
+│    └── checkout/           # Isolated domain-specific checkout multi-form subsections
+├── pages/                   # Route targets and global full-screen layouts
+└── utils/                   # Shared dynamic functional routines (ScrollToTop behaviors)
 ```

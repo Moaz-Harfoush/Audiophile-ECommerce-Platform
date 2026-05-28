@@ -1,32 +1,30 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
-import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
 import New from "../shared/New";
 import GoBack from "../ui/GoBack";
-import Toast from "../ui/Toast";
 
-import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "../../features/cart/cartSlice";
 import AddToCartSection from "./AddToCartSection";
 
 const ProductHero = ({ product }) => {
   return (
-    <section className="mt-40">
-      <div className="container">
+    <section>
+      <div className="container mt-40">
+        {/* Reusable back navigation action control */}
         <GoBack />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-32 items-center">
+          {/* Main detailed product presentation asset */}
           <ProductImage
             desktop={product.categoryImage.desktop}
             tablet={product.categoryImage.tablet}
             mobile={product.categoryImage.mobile}
             alt={product.name}
             className="w-full h-full object-contain"
-            isPriority={true}
+            isPriority={true} // Boosts image loading priority on individual item screens
           />
 
+          {/* Product pricing and description block text */}
           <div className="flex flex-col">
             {product.new && <New />}
 
@@ -42,6 +40,7 @@ const ProductHero = ({ product }) => {
               $ {product.price.toLocaleString()}
             </span>
 
+            {/* Embedded actionable counter addition interface */}
             <AddToCartSection product={product} />
           </div>
         </div>

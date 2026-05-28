@@ -1,9 +1,13 @@
+import React from "react";
+
 import ProductImage from "../ui/ProductImage";
 
 const ProductGallery = ({ product }) => {
   return (
     <section>
+      {/* Grid container mirroring the uneven 3-image mosaic design */}
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        {/* Left column stacked duo images */}
         <div className="flex flex-col gap-4 md:gap-6">
           <div className="rounded-lg overflow-hidden h-45 md:h-57.5">
             <ProductImage
@@ -26,6 +30,7 @@ const ProductGallery = ({ product }) => {
           </div>
         </div>
 
+        {/* Right column full height single featured image */}
         <div className="rounded-lg overflow-hidden h-95 md:h-123">
           <ProductImage
             className="w-full h-full object-cover"
@@ -39,4 +44,5 @@ const ProductGallery = ({ product }) => {
     </section>
   );
 };
+
 export default ProductGallery;

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import useCartTotals from "../../hooks/useCartTotals";
 
+import useCartTotals from "../../hooks/useCartTotals";
 import Button from "../../components/ui/Button";
 
 import { useDispatch } from "react-redux";
@@ -9,11 +9,11 @@ import CartItemsList from "./CartItemsList";
 
 const CartItemsSection = () => {
   const { cartItems, totalPrice, totalItems } = useCartTotals();
-
   const dispatch = useDispatch();
 
   return (
     <div>
+      {/* Upper header section with counter and clear items option */}
       <div className="flex flex-col justify-between items-center mb-6 sm:flex-row">
         <h3 className="text-[18px] font-bold tracking-[1.3px] text-black uppercase">
           CART ({totalItems.toLocaleString()})
@@ -26,8 +26,10 @@ const CartItemsSection = () => {
         </button>
       </div>
 
+      {/* Render core itemized listing element */}
       <CartItemsList cartItems={cartItems} />
 
+      {/* Total checkout price calculations summary frame */}
       <div className="flex justify-between items-center mb-4">
         <span className="text-[15px] text-text-body font-medium tracking-[1px]">
           TOTAL
@@ -36,6 +38,7 @@ const CartItemsSection = () => {
           $ {totalPrice.toLocaleString()}
         </span>
       </div>
+
       <div className="*:w-full *:text-center">
         <Button text="Checkout" url="/checkout" />
       </div>

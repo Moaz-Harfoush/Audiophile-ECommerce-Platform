@@ -1,15 +1,18 @@
+import React from "react";
+
 import Button from "../ui/Button";
 import ProductImage from "../ui/ProductImage";
 import New from "../shared/New";
 
 const CategoryProductCard = ({ product, index }) => {
+  /* Check if index is even to alternate layout direction (Left vs Right) */
   const isEven = index % 2 === 0;
-
   return (
     <section>
       <div
         className={`container flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-32 ${isEven ? "" : "lg:flex-row-reverse"}`}
       >
+        {/* Product Image Container */}
         <div className="w-full lg:w-3/5 bg-gray-light rounded-lg">
           <ProductImage
             desktop={product.image.desktop}
@@ -21,9 +24,10 @@ const CategoryProductCard = ({ product, index }) => {
         </div>
 
         <div className="w-full lg:w-1/2 text-center lg:text-left flex flex-col items-center lg:items-start">
+          {/* Render "New Product" badge if the condition is true */}
           {product.new && <New />}
 
-          <h2 className="text-black-pure text-3xl md:text-4xl font-bold uppercase mb-6 md:mb-8 max-w-75 lg:max-w-none">
+          <h2 className="text-black text-3xl md:text-4xl font-bold uppercase mb-6 md:mb-8 max-w-75 lg:max-w-none">
             {product.name}
           </h2>
 

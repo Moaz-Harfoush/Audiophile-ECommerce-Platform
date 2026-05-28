@@ -1,47 +1,54 @@
+import React from "react";
+
+import { useForm, FormProvider } from "react-hook-form";
+
 import BillingDetails from "./BillingDetails";
 import ShippingInfo from "./ShippingInfo";
 import PaymentMethod from "./PaymentMethod";
 import CheckoutSummary from "./CheckoutSummary";
-import useCheckoutForm from "../../hooks/useCheckoutForm";
 
 const Form = ({ checkoutMethod }) => {
-  const {
-    formData,
-    setFormData,
-    errors,
-    setErrors,
-    handleInputChange,
-    handleSubmit,
-  } = checkoutMethod;
+  /* Establish primary react-hook-form hub capturing default form initial settings */
+  const methods = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      zipCode: "",
+      city: "",
+      country: "",
+      paymentMethod: "e-money",
+      eMoneyNumber: "",
+      eMoneyPin: "",
+    },
+    mode: "onTouched", // Trigger analytical runtime verification on input focus blur actions
+  });
+
+  const onSubmit = (data) => {
+    /* Valid state data interception sequence launching success dialog triggers */
+    checkoutMethod.openOverlay();
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full"
-    >
-      <div className="lg:col-span-2 space-y-10">
-        <BillingDetails
-          formData={formData}
-          errors={errors}
-          handleInputChange={handleInputChange}
-        />
+    <FormProvider {...methods}>
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full"
+      >
+        {/* User context analytical questionnaire zones */}
+        <div className="lg:col-span-2 space-y-10 p-6 md:p-8">
+          <BillingDetails />
+          <ShippingInfo />
+          <PaymentMethod />
+        </div>
 
-        <ShippingInfo
-          formData={formData}
-          errors={errors}
-          handleInputChange={handleInputChange}
-        />
-
-        <PaymentMethod
-          formData={formData}
-          setFormData={setFormData}
-          handleInputChange={handleInputChange}
-          errors={errors}
-          setErrors={setErrors}
-        />
-      </div>
-      <CheckoutSummary />
-    </form>
+        {/* Floating receipt calculations summation sticky area */}
+        <div>
+          <CheckoutSummary />
+        </div>
+      </form>
+    </FormProvider>
   );
 };
 
