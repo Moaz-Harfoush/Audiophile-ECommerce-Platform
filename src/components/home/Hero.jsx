@@ -12,8 +12,8 @@ const Hero = () => {
   return (
     <section className="bg-black-light w-full min-h-137.5 md:min-h-160 lg:min-h-180 relative overflow-hidden flex items-center">
       {/* Background Image Wrapper (Absolute Layout) */}
-      <div className="absolute inset-0 w-full h-full z-0 flex justify-center lg:justify-end items-center pointer-events-none">
-        <div className="lg:w-full lg:h-full transform scale-150 md:scale-125 lg:scale-100 w-1/2 transition-transform duration-300">
+      <div className="absolute inset-0 w-full h-full z-0 flex justify-center items-center pointer-events-none">
+        <div className="lg:w-full lg:h-full xl:max-w-300 transform scale-150 md:scale-125 lg:scale-100 w-1/2 transition-transform duration-300">
           <ProductImage
             desktop={IMAGES.home.hero.desktop}
             tablet={IMAGES.home.hero.tablet}
